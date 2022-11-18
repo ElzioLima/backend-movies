@@ -29,8 +29,8 @@
     "email": "elziolimach@gmail.com"
   },
   "scripts": {
-    "start": "node -r dotenv/config dist/main",
-    "dev": "ts-node-dev --respawn --transpile-only --clear -r dotenv/config --inspect=0.0.0.0:9229 src/main",
+    "dev": "node -r dotenv/config dist/main",
+    "start": "ts-node-dev --respawn --transpile-only --clear -r dotenv/config --inspect=0.0.0.0:9229 src/main",
     "clean": "rimraf dist",
     "build": "npm run clean && tsc -p tsconfig-build.json",
     "migration:create": "npx typeorm migration:create -n ",
