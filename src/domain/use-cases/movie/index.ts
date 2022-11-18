@@ -1,0 +1,5 @@
+export * from './create-movie'
+export * from './list-movie'
+export * from './update-movie'
+export * from './list-one-movie'
+export * from './delete-movie'
