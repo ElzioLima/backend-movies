@@ -29,12 +29,12 @@ export class PgMovie {
   @Column()
   image!: string
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: "created_at" })
   createdAt!: Date
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: "updated_at" })
   updatedAt!: Date
 
-  @DeleteDateColumn({ nullable: true })
+  @DeleteDateColumn({ name: "deleted_At", nullable: true })
   deletedAt?: Date
 }

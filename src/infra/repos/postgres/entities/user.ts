@@ -11,7 +11,7 @@ export class PgUser {
   @Column()
   password!: string
 
-  @Column()
+  @Column({ nullable: true })
   token?: string
 
   @DeleteDateColumn({ name: "deleted_at", nullable: true })
