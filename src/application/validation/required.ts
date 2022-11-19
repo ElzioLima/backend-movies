@@ -40,7 +40,7 @@ export class RequiredNumber extends Required {
   }
 
   override validate (): Error | undefined {
-    if (super.validate() !== undefined || this.value === NaN) {
+    if (super.validate() !== undefined || Number.isNaN(this.value)) {
       return new RequiredFieldError(this.fieldName)
     }
   }

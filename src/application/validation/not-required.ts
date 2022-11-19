@@ -36,7 +36,7 @@ export class NotRequiredNumber extends NotRequired {
   }
 
   override validate (): Error | undefined {
-    if (this.value === NaN) {
+    if (Number.isNaN(this.value)) {
       return new RequiredFieldError(this.fieldName)
     }
   }
