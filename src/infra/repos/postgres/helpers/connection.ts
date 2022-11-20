@@ -28,6 +28,11 @@ export class PgConnection implements DbTransaction {
     this.connection = undefined
   }
 
+  async clearCacheById (cacheIds: string[]): Promise<void> {
+    if (this.connection === undefined) throw new ConnectionNotFoundError()
+    await this.connection.queryResultCache?.remove(cacheIds)
+  }
+
   async openTransaction (): Promise<void> {
     if (this.connection === undefined) throw new ConnectionNotFoundError()
     this.query = this.connection.createQueryRunner()

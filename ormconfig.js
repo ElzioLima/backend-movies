@@ -1,9 +1,17 @@
 module.exports = [
   {
     type: 'postgres',
-    url: process.env.HEROKU_POSTGRESQL_ROSE_URL,
+    url: process.env.DATABASE_URL,
     synchronize: true,
     logging: true,
+    cache: {
+      type: 'redis',
+      duration: 1000 * 60,
+      options: {
+        url: process.env.REDIS_TLS_URL
+      },
+      ignoreErrors: true
+    },
     ssl: {
       rejectUnauthorized: false
     },

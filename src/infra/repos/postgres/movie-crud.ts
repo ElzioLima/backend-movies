@@ -13,6 +13,7 @@ export class PgMovieRepository extends PgRepository implements DBCreateMovie, DB
     const pgMovieRepo = this.getRepository(PgMovie)
     const pgMovie = await pgMovieRepo.save({ name, year, description, length, gender, rating, watched, image })
     if (pgMovie !== undefined) {
+      await this.clearCacheById(["movies"])
       return {
         id: pgMovie.id ?? undefined,
         name: pgMovie.name ?? undefined,
@@ -36,6 +37,7 @@ export class PgMovieRepository extends PgRepository implements DBCreateMovie, DB
     if (pgMovieUpdated !== undefined) {
       const pgMovie = await pgMovieRepo.findOne(id)
       if (pgMovie !== undefined) {
+        await this.clearCacheById([`movie:${pgMovie.id}`, "movies"])
         return {
           id: pgMovie.id ?? undefined,
           name: pgMovie.name ?? undefined,
@@ -56,7 +58,7 @@ export class PgMovieRepository extends PgRepository implements DBCreateMovie, DB
 
   async list (): Promise<DBListMovie.Output> {
     const pgMovieRepo = this.getRepository(PgMovie)
-    const pgMovieList = pgMovieRepo.find()
+    const pgMovieList = pgMovieRepo.find({cache: {id: "movies", milliseconds: 1000 * 60}})
     return (await pgMovieList).map(({ id, name, year, description, length, gender, rating, watched, image, createdAt, updatedAt, deletedAt }) => {
       return {
         id: id ?? undefined,
@@ -77,22 +79,22 @@ export class PgMovieRepository extends PgRepository implements DBCreateMovie, DB
 
   async listOne ({ id }: DBListOneMovie.Input): Promise<DBListOneMovie.Output> {
     const pgMovieRepo = this.getRepository(PgMovie)
-    const pgMovie = await pgMovieRepo.findOne(id)
+    const pgMovie = await pgMovieRepo.findOne(id, {cache: {id: `movie:${id}`, milliseconds: 1000 * 60}})
     if (pgMovie !== undefined) {
       return {
         id: pgMovie.id ?? undefined,
-          name: pgMovie.name ?? undefined,
-          year: pgMovie.year ?? undefined,
-          description: pgMovie.description ?? undefined,
-          length: pgMovie.length ?? undefined,
-          gender: pgMovie.gender ?? undefined,
-          rating: pgMovie.rating ?? undefined,
-          watched: pgMovie.watched ?? undefined,
-          image: pgMovie.image ?? undefined,
-          createdAt: pgMovie.createdAt ?? undefined,
-          updatedAt: pgMovie.updatedAt ?? undefined,
-          deletedAt: pgMovie.deletedAt ?? undefined
-      }
+        name: pgMovie.name ?? undefined,
+        year: pgMovie.year ?? undefined,
+        description: pgMovie.description ?? undefined,
+        length: pgMovie.length ?? undefined,
+        gender: pgMovie.gender ?? undefined,
+        rating: pgMovie.rating ?? undefined,
+        watched: pgMovie.watched ?? undefined,
+        image: pgMovie.image ?? undefined,
+        createdAt: pgMovie.createdAt ?? undefined,
+        updatedAt: pgMovie.updatedAt ?? undefined,
+        deletedAt: pgMovie.deletedAt ?? undefined
+    }
     }
   }
 
@@ -101,19 +103,20 @@ export class PgMovieRepository extends PgRepository implements DBCreateMovie, DB
     const pgMovie = await pgMovieRepo.findOne(id)
     if (pgMovie !== undefined) {
       const pgMovieDeleted = await pgMovieRepo.softDelete(id)
+      await this.clearCacheById([`movie:${pgMovie.id}`, "movies"])
       return {
         id: pgMovie.id ?? undefined,
-          name: pgMovie.name ?? undefined,
-          year: pgMovie.year ?? undefined,
-          description: pgMovie.description ?? undefined,
-          length: pgMovie.length ?? undefined,
-          gender: pgMovie.gender ?? undefined,
-          rating: pgMovie.rating ?? undefined,
-          watched: pgMovie.watched ?? undefined,
-          image: pgMovie.image ?? undefined,
-          createdAt: pgMovie.createdAt ?? undefined,
-          updatedAt: pgMovie.updatedAt ?? undefined,
-          deletedAt: pgMovie.deletedAt ?? undefined
+        name: pgMovie.name ?? undefined,
+        year: pgMovie.year ?? undefined,
+        description: pgMovie.description ?? undefined,
+        length: pgMovie.length ?? undefined,
+        gender: pgMovie.gender ?? undefined,
+        rating: pgMovie.rating ?? undefined,
+        watched: pgMovie.watched ?? undefined,
+        image: pgMovie.image ?? undefined,
+        createdAt: pgMovie.createdAt ?? undefined,
+        updatedAt: pgMovie.updatedAt ?? undefined,
+        deletedAt: pgMovie.deletedAt ?? undefined
       }
     }
   }

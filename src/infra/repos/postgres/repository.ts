@@ -8,4 +8,9 @@ export abstract class PgRepository {
   getRepository<Entity extends ObjectLiteral> (entity: ObjectType<Entity>): Repository<Entity> {
     return this.connection.getRepository(entity)
   }
+
+  
+  async clearCacheById (cacheIds: string[]): Promise<void> {
+    await this.connection.clearCacheById(cacheIds)
+  }
 }
