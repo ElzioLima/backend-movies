@@ -3,7 +3,7 @@ import schemas from "./schemas"
 import components from "./components"
 
 export default {
-  openapi: "4.0.0",
+  openapi: "3.0.0",
   info: {
     title: "secret-wave-Node-API",
     description: "APIs Test",
