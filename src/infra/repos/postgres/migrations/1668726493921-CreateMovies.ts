@@ -20,7 +20,7 @@ export class CreateMovies1668726493921 implements MigrationInterface {
                     },
                     {
                         name: 'year',
-                        type: 'date'
+                        type: 'string'
                     },
                     {
                         name: 'description',
