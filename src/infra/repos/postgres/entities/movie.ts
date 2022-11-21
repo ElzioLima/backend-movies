@@ -20,7 +20,7 @@ export class PgMovie {
   @Column()
   gender!: string
 
-  @Column()
+  @Column({ type: 'float', nullable: true })
   rating!: number
 
   @Column()
