@@ -4,7 +4,7 @@ import { ValidationBuilder as Builder, Validator } from '@/application/validatio
 import { ListOneMovie } from '@/domain/use-cases'
 
 type HttpRequest = { id: number }
-type Model = undefined | { id: number, name: string, year: Date, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
+type Model = undefined | { id: number, name: string, year: string, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
 
 export class ListOneMovieController extends Controller {
   constructor (private readonly listOneMovie: ListOneMovie) {

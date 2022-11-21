@@ -3,7 +3,7 @@ import { Movie } from '@/domain/entities'
 
 type Setup = (movieRepo: DBListOneMovie) => ListOneMovie
 type Input = { id: number }
-type Output = undefined | { id: number, name: string, year: Date, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
+type Output = undefined | { id: number, name: string, year: string, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
 export type ListOneMovie = (input: Input) => Promise<Output>
 
 export const setupListOneMovie: Setup = (movieRepo) => async ({ id }) => {

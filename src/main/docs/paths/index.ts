@@ -1,0 +1,5 @@
+export * from "./update-movie-path"
+export * from "./create-movie-path"
+export * from "./delete-movie-path"
+export * from "./list-movies-path"
+export * from "./list-one-movie-path"

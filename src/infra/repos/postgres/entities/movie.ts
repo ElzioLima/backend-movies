@@ -9,7 +9,7 @@ export class PgMovie {
   name!: string
 
   @Column()
-  year!: Date
+  year!: string
 
   @Column()
   description!: string

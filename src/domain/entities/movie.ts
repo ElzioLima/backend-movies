@@ -1,7 +1,7 @@
 type MovieData = { 
   id: number,
   name: string,
-  year: Date,
+  year: string,
   description: string,
   length: number,
   gender: string,
@@ -16,7 +16,7 @@ type MovieData = {
 export class Movie {
   id: number
   name: string
-  year: Date
+  year: string
   description: string
   length: number
   gender: string

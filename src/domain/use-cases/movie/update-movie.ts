@@ -2,8 +2,8 @@ import { DBUpdateMovie } from '@/domain/contracts/repos'
 import { Movie } from '@/domain/entities'
 
 type Setup = (movieRepo: DBUpdateMovie) => UpdateMovie
-type Input = { id: number, name: string, year: Date, description: string, length: number, gender: string, rating: number, watched: string, image: string }
-type Output = undefined | { id: number, name: string, year: Date, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
+type Input = { id: number, name: string, year: string, description: string, length: number, gender: string, rating: number, watched: string, image: string }
+type Output = undefined | { id: number, name: string, year: string, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
 export type UpdateMovie = (input: Input) => Promise<Output>
 
 export const setupUpdateMovie: Setup = (movieRepo) => async ({ id, name, year, description, length, gender, rating, watched, image }) => {

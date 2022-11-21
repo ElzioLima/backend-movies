@@ -3,8 +3,8 @@ import { HttpResponse, ok } from '@/application/helpers'
 import { ValidationBuilder as Builder, Validator } from '@/application/validation'
 import { CreateMovie } from '@/domain/use-cases'
 
-type HttpRequest = { name: string, year: Date, description: string, length: number, gender: string, rating: number, watched: string, image: string }
-type Model = undefined | { id: number, name: string, year: Date, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
+type HttpRequest = { name: string, year: string, description: string, length: number, gender: string, rating: number, watched: string, image: string }
+type Model = undefined | { id: number, name: string, year: string, description: string, length: number, gender: string, rating: number, watched: string, image: string, createdAt: Date, updatedAt: Date, deletedAt: Date | undefined }
 
 export class CreateMovieController extends Controller {
   constructor (private readonly createMovie: CreateMovie) {

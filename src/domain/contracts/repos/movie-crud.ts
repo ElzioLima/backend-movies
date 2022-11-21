@@ -5,7 +5,7 @@ export interface DBCreateMovie {
 export namespace DBCreateMovie {
   export type Input = {
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
@@ -16,7 +16,7 @@ export namespace DBCreateMovie {
   export type Output = undefined | {
     id: number
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
@@ -37,7 +37,7 @@ export namespace DBUpdateMovie {
   export type Input = {
     id: number
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
@@ -48,7 +48,7 @@ export namespace DBUpdateMovie {
   export type Output = undefined | {
     id: number
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
@@ -69,7 +69,7 @@ export namespace DBListMovie {
   export type Output = undefined | Array<{
     id: number
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
@@ -93,7 +93,7 @@ export namespace DBListOneMovie {
   export type Output = undefined | {
     id: number
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
@@ -117,7 +117,7 @@ export namespace DBDeleteMovie {
   export type Output = undefined | {
     id: number
     name: string
-    year: Date
+    year: string
     description: string
     length: number
     gender: string
