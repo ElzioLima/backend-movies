@@ -29,6 +29,7 @@
     "email": "elziolimach@gmail.com"
   },
   "scripts": {
+    "container:start:prod": "npm run build && npx typeorm migration:run && npm run start",
     "start": "node -r dotenv/config dist/main",
     "dev": "ts-node-dev --respawn --transpile-only --clear -r dotenv/config --inspect=0.0.0.0:9229 src/main",
     "clean": "rimraf dist",

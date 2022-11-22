@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "build", "&&", "npm", "migration:run", "&&", "npm", "start"]
+CMD ["npm", "container:start:prod"]
