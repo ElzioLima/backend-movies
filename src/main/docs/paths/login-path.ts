@@ -1,17 +1,14 @@
-export const deleteMoviePath = {
-  delete: {
-    security: [{
-      apiKeyAuth: []
-    }],
-    tags: ["Movie"],
-    summary: "API to delete a movie",
-    description: "This route needs a **Authorization token** to be accessed",
+export const loginPath = {
+  post: {
+    tags: ["Login"],
+    summary: "user authentication API",
+    description: "This route can be accessed by **any user**",
     requestBody: {
       required: true,
       content: {
         "application/json": {
           schema: {
-            $ref: "#/schemas/deleteMovieParams"
+            $ref: "#/schemas/loginParams"
           }
         }
       }
@@ -22,13 +19,19 @@ export const deleteMoviePath = {
         content: {
           "application/json": {
             schema: {
-              $ref: "#/schemas/result"
+              $ref: "#/schemas/account"
             }
           }
         }
       },
       400: {
         $ref: "#/components/badRequest"
+      },
+      401: {
+        $ref: "#/components/unauthorized"
+      },
+      404: {
+        $ref: "#/components/notFound"
       },
       500: {
         $ref: "#/components/serverError"

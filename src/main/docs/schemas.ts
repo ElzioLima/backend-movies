@@ -5,15 +5,17 @@ import {
   errorSchema,
   resultSchema,
   moviesSchema,
-  movieSchema
+  movieSchema,
+  loginParamsSchema
 } from "./schemas/"
 
 export default {
   createMovieParams: createMovieParamsSchema,
   updateMovieParams: updateMovieParamsSchema,
   deleteMovieParams: deleteMovieParamsSchema,
-  movies: moviesSchema,
-  movie: movieSchema,
+  moviesParams: moviesSchema,
+  movieParams: movieSchema,
+  loginParams: loginParamsSchema,
   error: errorSchema,
   result: resultSchema
 }

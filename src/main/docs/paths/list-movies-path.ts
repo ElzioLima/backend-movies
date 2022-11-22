@@ -1,5 +1,8 @@
 export const listMoviePath = {
   get: {
+    security: [{
+      apiKeyAuth: []
+    }],
     tags: ["Movie"],
     summary: "API to list movies",
     description: "This route needs a **Authorization token** to be accessed",

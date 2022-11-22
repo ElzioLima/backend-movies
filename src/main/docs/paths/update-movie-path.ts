@@ -1,5 +1,8 @@
 export const updateMoviePath = {
   put: {
+    security: [{
+      apiKeyAuth: []
+    }],
     tags: ["Movie"],
     summary: "API to update a movie",
     description: "This route needs a **Authorization token** to be accessed",

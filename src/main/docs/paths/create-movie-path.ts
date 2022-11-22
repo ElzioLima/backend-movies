@@ -1,5 +1,8 @@
 export const createMoviePath = {
   post: {
+    security: [{
+      apiKeyAuth: []
+    }],
     tags: ["Movie"],
     summary: "API to create a movie",
     description: "This route needs a **Authorization token** to be accessed",

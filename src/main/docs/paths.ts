@@ -3,10 +3,12 @@ import {
     updateMoviePath, 
     listMoviePath,
     listOneMoviePath,
-    deleteMoviePath
+    deleteMoviePath,
+    loginPath
 } from "./paths/"
 
 export default {
+    '/login': loginPath,
     "/movie/create": createMoviePath,
     "/movie/update": updateMoviePath,
     "/movie/list": listMoviePath,
