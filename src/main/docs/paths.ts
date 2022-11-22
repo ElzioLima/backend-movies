@@ -7,9 +7,5 @@ import {
 } from "./paths/"
 
 export default {
-    "/movie/create": createMoviePath,
-    "/movie/update": updateMoviePath,
-    "/movie/list": listMoviePath,
-    "/movie/list-one": listOneMoviePath,
-    "/movie/delete": deleteMoviePath
+    "/movie": [createMoviePath, updateMoviePath, listMoviePath, listOneMoviePath, deleteMoviePath]
 }
