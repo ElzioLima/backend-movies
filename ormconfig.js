@@ -8,7 +8,7 @@ module.exports = [
       type: 'redis',
       duration: 1000 * 60,
       options: {
-        url: process.env.REDIS_TLS_URL
+        url: process.env.REDIS_URL
       },
       ignoreErrors: true
     },
