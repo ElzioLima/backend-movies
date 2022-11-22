@@ -9,8 +9,7 @@ module.exports = [
       duration: 1000 * 60,
       options: {
         url: process.env.REDIS_URL
-      },
-      ignoreErrors: true
+      }
     },
     ssl: {
       rejectUnauthorized: false
