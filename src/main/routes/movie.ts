@@ -11,9 +11,9 @@ import { auth } from '@/main/middlewares'
 import { Router } from 'express'
 
 export default (router: Router): void => {
-  router.post('/movie', auth, adapt(makeCreateMovieController()))
-  router.get('/movie', auth, adapt(makeListMovieController()))
-  router.put('/movie/:id', auth, adapt(makeUpdateMovieController()))
-  router.get('/movie/:id', auth, adapt(makeListOneMovieController()))
-  router.delete('/movie/:id', auth, adapt(makeDeleteMovieController()))
+  router.post('/movie/create', auth, adapt(makeCreateMovieController()))
+  router.get('/movie/list', auth, adapt(makeListMovieController()))
+  router.put('/movie/update/:id', auth, adapt(makeUpdateMovieController()))
+  router.get('/movie/list-one/:id', auth, adapt(makeListOneMovieController()))
+  router.delete('/movie/delete/:id', auth, adapt(makeDeleteMovieController()))
 }
