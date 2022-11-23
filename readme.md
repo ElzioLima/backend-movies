@@ -8,29 +8,34 @@
 
 Teste de competência
 
+> # Link
+
+https://secret-wave-02643.herokuapp.com/docs/
+
 > # Posts API
 
-An API for a simple Social Media, where users can public posts and see what others user are posting too Technologies
-
+An API for a simple Movies Manager
 * Node.JS
 * Express.JS
 * TypeORM
 * Postgres
+* Redis(but, we have problems in production)
+* Swagger
 
 <br /><br />
 
 > ## Database configuration
 
 * Install postgres version 8.0
-* create database dev_database
-* Change database connection credentials at ormconfig.js
+* create database your_database
+* Change database connection credentials at ormconfig.js or create a .env file
 
 <br /><br />
 
 > ## Usage
 
 * npm install --save-dev
-* npm run reset
+* npm run start
 * npm run dev
 
 <br /><br />
