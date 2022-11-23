@@ -26,7 +26,7 @@ An API for a simple Movies Manager
 
 > ## Database configuration
 
-* Install postgres version 8.0
+* Install postgres current version
 * create database your_database
 * Change database connection credentials at ormconfig.js or create a .env file
 
